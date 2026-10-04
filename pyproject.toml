@@ -1,0 +1,19 @@
+[project]
+name = "refund-agent"
+version = "0.1.0"
+description = "Autonomous customer-support refund agent built on Claude Opus 5.5"
+requires-python = ">=3.12"
+dependencies = [
+    "anthropic>=1.11",
+    "sqlalchemy>=2.0",
+    "pydantic>=2.7",
+    "email-validator>=2.1",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+markers = ["live: calls the real Claude API (needs credentials and RUN_LIVE_TESTS=1)"]
